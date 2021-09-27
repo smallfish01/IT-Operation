@@ -84,12 +84,17 @@ reboot(){
      done
 }
 
+
 power_on_chassis(){
+     for ip in $chassis_ip
+     do
      echo "Show Poweredge chassis power status"
-     status="`sshpass -p "$pass" ssh -o StrictHostKeyChecking=no root@$chassis_ip racadm getsysinfo -c`"
-     stat=`awk '/Power Status/{print}' $status`
+     sshpass -p $pass ssh -o StrictHostKeyChecking=no root@$ip racadm getsysinfo -c > chassis.txt
+     stat=`awk '/Power Status/{print}' chassis.txt`
      echo $stat
      printf "$(date) Server $ip $status\n" >>/root/powerstatus1.txt
+     done
+}
 
 while true
 do
