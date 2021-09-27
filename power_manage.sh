@@ -2,7 +2,7 @@
 # For Power on/down/reset Dell Server
 # Author Jun Yu
 # V1.0
-# 该脚本用于检查DELL服务器电源状态，远程开关机。服务器必须有iDRAC功能，配置IP地址，账号密码，可用于远程ssh.
+# 该脚本用于检查DELL服务器电源状态，远程批量自动开关机。服务器必须有iDRAC功能，配置IP地址，账号密码，可用于远程ssh.
 
 #set -x
 pub(){
