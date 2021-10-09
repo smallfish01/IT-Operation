@@ -37,7 +37,6 @@ power_status(){
      ip=`cat ${server_ip} | grep -v "^#" |head -$i | tail -1|awk -F " " '{print $1}'`
      echo "Show $ip power status"
      status="`sshpass -p $pass ssh -o StrictHostKeyChecking=no root@$ip racadm serveraction powerstatus`" 
-    # status="`sshpass -p tc123456 ssh -o StrictHostKeyChecking=no root@$ip cat /etc/issue`"
      echo $status
      printf "$(date) Server $ip $status\n" >>/root/powerstatus1.txt
      done
@@ -51,7 +50,6 @@ power_on(){
      ip=`cat ${server_ip} | grep -v "^#" |head -$i | tail -1|awk -F " " '{print $1}'`
      echo "Show $ip power status"
      status="`sshpass -p $pass ssh -o StrictHostKeyChecking=no root@$ip racadm serveraction powerup`"
-    # status="`sshpass -p tc123456 ssh -o StrictHostKeyChecking=no root@$ip cat /etc/issue`"
      echo $status
      printf "$(date) Server $ip $status\n" >>/root/powerstatus1.txt
      done
@@ -65,7 +63,6 @@ power_off(){
      ip=`cat ${server_ip} | grep -v "^#" |head -$i | tail -1|awk -F " " '{print $1}'`
      echo "Show $ip power status"
      status="`sshpass -p $pass ssh -o StrictHostKeyChecking=no root@$ip racadm serveraction powerdown`"
-    # status="`sshpass -p tc123456 ssh -o StrictHostKeyChecking=no root@$ip cat /etc/issue`"
      echo $status
      printf "$(date) Server $ip $status\n" >>/root/powerstatus1.txt
      done
@@ -79,7 +76,6 @@ reboot(){
      ip=`cat ${server_ip} | grep -v "^#" |head -$i | tail -1|awk -F " " '{print $1}'`
      echo "Show $ip power status"
      status="`sshpass -p $pass ssh -o StrictHostKeyChecking=no root@$ip racadm serveraction powercycle`"
-    # status="`sshpass -p tc123456 ssh -o StrictHostKeyChecking=no root@$ip cat /etc/issue`"
      echo $status
      printf "$(date) Server $ip $status\n" >>/root/powerstatus1.txt
      done
